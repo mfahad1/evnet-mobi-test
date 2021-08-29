@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WithLoader should match snapshot 1`] = `
+<div
+  className="UserGistSearcher"
+>
+  <h1>
+    Search Git Gist By User Name
+  </h1>
+  <div
+    className="UserGistSearcher_Form"
+  >
+    <input
+      className="Input"
+      data-testid="InputField"
+      onChange={[Function]}
+      onKeyUp={[Function]}
+      placeholder="Enter Username"
+    />
+    <button
+      className="UserGistSearcher_Button"
+    >
+      <svg>
+        search.svg
+      </svg>
+    </button>
+  </div>
+</div>
+`;

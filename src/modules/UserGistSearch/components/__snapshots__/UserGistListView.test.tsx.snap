@@ -1,0 +1,141 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserGistListItem should match UserGistListItem 1`] = `
+<div
+  className="UserGistListView_Item"
+>
+  <a
+    href="testing"
+    rel="noreferrer"
+    target="_blank"
+  >
+    testing
+  </a>
+  <div
+    className="AlignItemsCenter"
+  >
+    <h3>
+      TAGS:
+    </h3>
+    <span
+      className="badge"
+    >
+      application/json
+    </span>
+  </div>
+  <div
+    className="UserGistListView_AvatarList AlignItemsCenter"
+  >
+    <h3>
+      FORKED BY:
+    </h3>
+    <a
+      className="Avatar"
+      href="testing"
+      rel="noreferrer"
+      target="_blank"
+    >
+      <img
+        alt="avatar"
+        src="testing"
+      />
+    </a>
+  </div>
+</div>
+`;
+
+exports[`UserGistListItem should match UserGistListItem gist id 1`] = `
+<div
+  className="UserGistListView_Item"
+>
+  <a
+    href="testing"
+    rel="noreferrer"
+    target="_blank"
+  >
+    testing
+  </a>
+  <div
+    className="AlignItemsCenter"
+  >
+    <h3>
+      TAGS:
+    </h3>
+    <span
+      className="badge"
+    >
+      application/json
+    </span>
+  </div>
+  <div
+    className="UserGistListView_AvatarList AlignItemsCenter"
+  >
+    <h3>
+      FORKED BY:
+    </h3>
+    <a
+      className="Avatar"
+      href="testing"
+      rel="noreferrer"
+      target="_blank"
+    >
+      <img
+        alt="avatar"
+        src="testing"
+      />
+    </a>
+  </div>
+</div>
+`;
+
+exports[`UserGistListView should match UserGistListView 1`] = `
+<div
+  className="UserGistListView"
+>
+  <h1>
+    Number of gist for searched user: 
+    1
+  </h1>
+  <div
+    className="UserGistListView_Item"
+  >
+    <a
+      href="testing"
+      rel="noreferrer"
+      target="_blank"
+    >
+      testing
+    </a>
+    <div
+      className="AlignItemsCenter"
+    >
+      <h3>
+        TAGS:
+      </h3>
+      <span
+        className="badge"
+      >
+        application/json
+      </span>
+    </div>
+    <div
+      className="UserGistListView_AvatarList AlignItemsCenter"
+    >
+      <h3>
+        FORKED BY:
+      </h3>
+      <a
+        className="Avatar"
+        href="testing"
+        rel="noreferrer"
+        target="_blank"
+      >
+        <img
+          alt="avatar"
+          src="testing"
+        />
+      </a>
+    </div>
+  </div>
+</div>
+`;

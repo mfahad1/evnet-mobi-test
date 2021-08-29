@@ -1,0 +1,51 @@
+.UserGistSearcher {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.UserGistSearcher_Form {
+  display: flex;
+  align-items: center;
+
+  .Input {
+    padding: 20px;
+    margin: 10px 0;
+    padding: 10px;
+    border: 0;
+    box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 2rem;
+
+    :focus {
+      outline: none !important;
+      border-color: #719ECE;
+      box-shadow: 0 0 10px #719ECE;
+    }
+  }
+}
+
+.UserGistSearcher_Button {
+  background-color: transparent;
+  width: 3rem;
+
+  cursor: pointer;
+  border: none;
+  padding: 0;
+  margin-left: 1rem;
+
+  :hover {
+    border-radius: 0.5rem;
+  }
+
+  :focus {
+    outline: none;
+    box-shadow: 0 0 0 3px lightskyblue;
+  }
+
+  :active {
+    background-color: white;
+    border-color: #333;
+  }
+}
