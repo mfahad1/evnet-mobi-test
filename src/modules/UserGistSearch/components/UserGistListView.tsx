@@ -1,9 +1,11 @@
 import { WithLoader } from '../../../components/WithLoader';
-import { UserGistWithForkUsers } from '../../../hooks/services/useFetchUserGists';
+import { UserGist } from '../../../hooks/services/useFetchUserGists';
+import { ForkUserInfo } from './ForkUserInfo';
+
 import './UserGistListView.scss';
 
 type UserGistListViewProps = {
-  gists: UserGistWithForkUsers[] | undefined;
+  gists: UserGist[] | undefined;
   loading: boolean;
   error: boolean;
 };
@@ -23,7 +25,7 @@ export default function UserGistListView(props: UserGistListViewProps) {
   );
 }
 
-export function UserGistListItem({ gist }: { gist: UserGistWithForkUsers }) {
+export function UserGistListItem({ gist }: { gist: UserGist }) {
   const tags = [...new Set(Object.values(gist.files).map((file) => file.type))];
 
   return (
@@ -40,14 +42,7 @@ export function UserGistListItem({ gist }: { gist: UserGistWithForkUsers }) {
         ))}
       </div>
 
-      <div className="UserGistListView_AvatarList AlignItemsCenter">
-        {gist.forkedUsers.length > 0 && <h3>FORKED BY:</h3>}
-        {gist.forkedUsers.map(({ html_url, avatar_url, login }) => (
-          <a key={login} href={html_url} className="Avatar" target="_blank" rel="noreferrer">
-            <img src={avatar_url} alt="avatar" />
-          </a>
-        ))}
-      </div>
+      <ForkUserInfo gistId={gist.id} />
     </div>
   );
 }
