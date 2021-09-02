@@ -1,7 +1,6 @@
 import { QueryClient, QueryClientProvider } from 'react-query';
-import UserGistSearch from './modules/UserGistSearch/UserGistSearch.module';
-
 import './App.scss';
+import UserGistSearch from './modules/UserGistSearch/UserGistSearch.module';
 
 const queryClient = new QueryClient();
 

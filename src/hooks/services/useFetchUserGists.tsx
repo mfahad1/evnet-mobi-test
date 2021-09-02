@@ -1,4 +1,4 @@
-import { useQuery } from 'react-query';
+import { useInfiniteQuery } from 'react-query';
 import httpRequest from '../../config/service/HttpRequest';
 
 export type UserGist = {
@@ -9,21 +9,37 @@ export type UserGist = {
   forks_url: string;
 };
 
-export function fetchUserGists(userName: string): Promise<UserGist[]> {
-  return httpRequest({ method: 'GET', url: `/users/${userName}/gists` });
+type Pagination = {
+  per_page: number;
+  page: number;
+};
+
+export function fetchUserGists(userName: string, params?: Partial<Pagination>): Promise<UserGist[]> {
+  let per_page = 10;
+  let page = 1;
+
+  if (params) {
+    per_page = params.per_page || per_page;
+    page = params.page || page;
+  }
+
+  return httpRequest({ method: 'GET', url: `/users/${userName}/gists`, params: { per_page, page } });
 }
 
-export default function useFetchUserGists(userName: string) {
-  return useQuery(
-    ['userGits', userName],
+export default function useFetchUserGists(userName: string, params?: Partial<Pagination>) {
+  return useInfiniteQuery(
+    ['userGits', userName, params],
     () => {
       if (!userName) return;
 
-      return fetchUserGists(userName);
+      return fetchUserGists(userName, params);
     },
     {
       refetchOnWindowFocus: false,
       enabled: false,
+      keepPreviousData: true,
+      getNextPageParam: (lastPage) => lastPage?.length === 10,
+      getPreviousPageParam: () => params?.page,
     },
   );
 }

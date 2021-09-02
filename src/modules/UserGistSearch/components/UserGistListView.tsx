@@ -1,32 +1,43 @@
+import { UIEvent } from 'react';
 import { WithLoader } from '../../../components/WithLoader';
 import { UserGist } from '../../../hooks/services/useFetchUserGists';
 import { ForkUserInfo } from './ForkUserInfo';
-
 import './UserGistListView.scss';
 
 type UserGistListViewProps = {
   gists: UserGist[] | undefined;
   loading: boolean;
   error: boolean;
+  onScrollEnd?: () => void;
+  onScrollStart?: () => void;
 };
 
 export default function UserGistListView(props: UserGistListViewProps) {
-  const { gists, loading, error } = props;
+  const { gists, loading, error, onScrollEnd, onScrollStart } = props;
+
+  const handleScroll = ({ currentTarget }: UIEvent<HTMLElement>) => {
+    const bottom = currentTarget.scrollHeight - currentTarget.scrollTop === currentTarget.clientHeight;
+    const top = currentTarget.scrollTop === 0;
+    if (bottom && onScrollEnd) {
+      onScrollEnd();
+    }
+
+    if (top && onScrollStart) {
+      onScrollStart();
+    }
+  };
 
   return (
-    <div className="UserGistListView">
+    <div className="UserGistListView" onScroll={handleScroll}>
       <WithLoader loading={loading} error={error}>
-        <>
-          <h1>Number of gist for searched user: {gists?.length || 0}</h1>
-          {gists && gists.map((gist) => <UserGistListItem gist={gist} key={gist.id} />)}
-        </>
+        <>{gists && gists.map((gist) => <UserGistListItem gist={gist} key={gist.id} />)}</>
       </WithLoader>
     </div>
   );
 }
 
 export function UserGistListItem({ gist }: { gist: UserGist }) {
-  const tags = [...new Set(Object.values(gist.files).map((file) => file.type))];
+  const tags = [...new Set(Object.values(gist.files).map((file) => file.language))].filter((tag) => tag);
 
   return (
     <div className="UserGistListView_Item">
@@ -35,8 +46,8 @@ export function UserGistListItem({ gist }: { gist: UserGist }) {
       </a>
       <div className="AlignItemsCenter">
         {tags.length > 0 && <h3>TAGS:</h3>}
-        {tags.map((tag) => (
-          <span key={tag} className="badge">
+        {tags.map((tag, index) => (
+          <span key={tag + index} className="badge">
             {tag}
           </span>
         ))}
