@@ -7,17 +7,7 @@ Show Gist of searched user
 Create a .env and place values of theses below variable with appropriate values 
 ``` 
 REACT_APP_API_URL
-REACT_APP_GITHUB_TOKEN
-```
-## Setup a gist account
-Create a personal gist key from [here](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token).
-
-copy and paste it in .env
-where 
-```
-REACT_APP_GITHUB_TOKEN 
-```
-
+``` 
 ## Install node dependencies
 Node version must be greater then 16.
 Run following command

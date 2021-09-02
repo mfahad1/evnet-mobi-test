@@ -1,12 +1,10 @@
 import axiosRequest from './axios';
 
-const githubToken = process.env.REACT_APP_GITHUB_TOKEN;
 const baseURL = process.env.REACT_APP_API_URL;
 
 const getHeader = <T>(header: T) => {
   const defaultHeaders = {
     'Content-Type': 'application/json',
-    Authorization: `token ${githubToken}`,
   };
 
   if (header) return { ...defaultHeaders, ...header };
