@@ -1,66 +1,61 @@
-# Objective
-Show Gist of searched user
+# Github Gist Searcher
+This is a minimalistic app that search and list Github users gists with users that forked it
 
-## How to run project
+![Demo](/demo.gif)
+
+## Setup
+
+### Prerequisites
+
+* Node.js >= 16
+* React.js >= 17
 
 
-Create a .env and place values of theses below variable with appropriate values 
+Create a .env and place values of these below variable with appropriate values 
 ``` 
-REACT_APP_API_URL
-``` 
-## Install node dependencies
-Node version must be greater then 16.
-Run following command
+REACT_APP_GITHUB_API
 ```
-npm install
+*please see `.env.example` for reference*
+
+Execute the following
+
+```
+npm install && npm start
+
 ```
 
-## Run the project
-You can run the project
-```
-npm start
-```
 
-## Run the test
-You can run the test
+## Testing
+
 ```
 npm run test
 ```
 
-## Check test coverage
-You can check the test coverage by running the command
+### Test Coverage
 ```
-npm run test:cov
+npm run test:coverage
 ```
-## Format your code as
-You can formate the project with
+## Styleguide
+This project follows the Airbnb style guides
 ```
-npm run format
+npm run lint     // list out all the warnings/errors
+npm run lint:fix // Fix lint warnings/errors automatically
 ```
 
-# Project Demo
-
-![Demo](/demo.gif)
-
-# Project Structure
-A modular approach to organize the React APP.
+# Application Structure
+A modular approach to organize the React App.
 ## Modules
+
 Module are the Smart components which will have following responsibilities
-- Managing all the components scoped in that module.
-- Managing all the state management that are of APP level like API responses.
-- Management of routes should also happen here.
-- All the basic styling that is shared in the module will be implemented her.
+- Route handler 
+- State Management (Components/Stateless Components)
 
-## Components
-Components are mainly dump. But components in module can sometime call access the App state.
-We have two types of components in our project hierarchy.
-
-- Part of module which is only used by that module.
-- Common Generic Components that can be used anywhere in the project. They must be pure components.
+## Generic Components (Stateless)
+These are the common components that can be used inside a module or component
 
 ## Services
 Services are responsible for triggering the API requests. They are not tightly coupled with projects.
 Currently axios is being used for requests but can be replaced easily with fetch as well.
 
 ## Hooks
-All the custom hooks will be in this hierarchy.
+Extract the common logic into the reuseable/customizable hooks. 
